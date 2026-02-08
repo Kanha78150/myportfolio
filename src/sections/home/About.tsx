@@ -11,14 +11,14 @@ const About = () => {
     <section
       id="about"
       ref={ref}
-      className="w-full px-4 sm:px-8 md:px-12 py-24"
+      className="w-full px-4 sm:px-8 md:px-12 py-16 md:py-24"
     >
-      {/* header */}
-      <div className="w-full border-b-2 border-[#151515] pb-6 mb-16">
-        <h2 className="text-2xl font-semibold">About</h2>
+      {/* Header */}
+      <div className="w-full border-b-2 border-[#151515] pb-4 md:pb-6 mb-10 md:mb-16">
+        <h2 className="text-xl sm:text-2xl font-semibold">About</h2>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* TEXT */}
         <motion.div
           initial="hidden"
@@ -28,7 +28,7 @@ const About = () => {
             hidden: {},
             show: { transition: { staggerChildren: 0.15 } },
           }}
-          className="text-[28px] md:text-[36px] leading-[1.4] font-medium text-[#151515]"
+          className="text-[clamp(20px,2.6vw,36px)] leading-[1.45] font-medium text-[#151515]"
         >
           {[
             "Hi, I’m Bholasankar Nanda, a full-stack developer passionate about building scalable and user-centric digital products.",
@@ -41,8 +41,8 @@ const About = () => {
                 hidden: { opacity: 0, y: 40 },
                 show: { opacity: 1, y: 0 },
               }}
-              transition={{ duration: 0.7 }}
-              className="mb-6"
+              transition={{ duration: 0.6 }}
+              className="mb-5 md:mb-6"
             >
               {line}
             </motion.p>
@@ -50,24 +50,24 @@ const About = () => {
         </motion.div>
 
         {/* IMAGE */}
-        <div className="overflow-hidden rounded-xl">
-          {/* IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 120, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full flex justify-center overflow-hidden rounded-xl"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 120, scale: 0.92 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full flex justify-center"
+        >
+          <div className="overflow-hidden rounded-2xl w-full max-w-[420px] sm:max-w-[480px] md:max-w-[520px]">
             <Image
               src="/assets/profilephoto.png"
               alt="profile"
-              width={500}
-              height={700}
-              className="rounded-xl object-cover"
+              width={520}
+              height={720}
+              className="rounded-2xl object-cover w-full h-auto"
+              priority
             />
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

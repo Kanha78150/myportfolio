@@ -15,8 +15,16 @@ const grotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Bholasankar Nanda - Full-Stack Developer",
-  description:
-    "I’m Bholasankar Nanda, a full-stack developer passionate about building scalable and user-centric digital products. With a strong background in modern web technologies, I focus on creating seamless experiences that merge performance, functionality, and elegant design. I enjoy solving complex engineering challenges and collaborating on impactful products that deliver real-world value.",
+  description: "Full-stack developer portfolio of Bholasankar Nanda.",
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

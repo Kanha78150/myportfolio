@@ -28,20 +28,27 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="w-full px-4 sm:px-8 md:px-12 py-24">
+    <section
+      id="services"
+      className="w-full px-4 sm:px-8 md:px-12 py-16 md:py-24"
+    >
       {/* Header */}
-      <div className="w-full border-b-2 border-[#151515] pb-6 mb-16">
-        <h2 className="text-2xl font-semibold">Services</h2>
+      <div className="w-full border-b-2 border-[#151515] pb-4 md:pb-6 mb-10 md:mb-16">
+        <h2 className="text-xl sm:text-2xl font-semibold">Services</h2>
       </div>
 
-      <div className="grid lg:grid-cols-5 gap-16">
+      <div className="grid lg:grid-cols-5 gap-10 md:gap-16">
         {/* LEFT TEXT */}
         <motion.h5
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="lg:col-span-2 text-[22px] md:text-[28px] leading-normal"
+          className="
+            lg:col-span-2
+            text-[clamp(18px,2.4vw,28px)]
+            leading-relaxed
+          "
         >
           I am dedicated to expanding my knowledge and expertise in my field.
           Throughout my career, I’ve acquired various skills which I continue to
@@ -57,7 +64,7 @@ const Services = () => {
             hidden: {},
             show: { transition: { staggerChildren: 0.18 } },
           }}
-          className="lg:col-span-3 grid sm:grid-cols-2 gap-10"
+          className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10"
         >
           {services.map((service, i) => {
             const Icon = service.icon;
@@ -71,19 +78,27 @@ const Services = () => {
                 }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ y: -8 }}
-                className="p-8 border border-[#151515]/20 rounded-2xl bg-white/40 backdrop-blur-sm transition"
+                className="
+                  p-6 md:p-8
+                  border border-[#151515]/20
+                  rounded-2xl
+                  bg-white/40 backdrop-blur-sm
+                  transition
+                "
               >
                 <motion.div
                   whileHover={{ rotate: 6, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="mb-6"
+                  className="mb-5 md:mb-6"
                 >
-                  <Icon size={38} />
+                  <Icon size={34} className="md:size-[38px]" />
                 </motion.div>
 
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">
+                  {service.title}
+                </h3>
 
-                <p className="text-[15px] leading-[1.6] text-gray-700">
+                <p className="text-[14px] md:text-[15px] leading-[1.6] text-gray-700">
                   {service.desc}
                 </p>
               </motion.div>

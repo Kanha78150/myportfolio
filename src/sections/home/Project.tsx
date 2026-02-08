@@ -27,51 +27,47 @@ const Project = () => {
     window.dispatchEvent(new Event("cursorExploreOff"));
 
   return (
-    <section
-      id="projects"
-      className="w-full px-4 sm:px-8 md:px-12 py-12 overflow-x-hidden"
-    >
-      <div className="w-full border-b-2 border-[#151515] mb-10"></div>
+    <section id="projects" className="w-full px-4 sm:px-8 md:px-12 py-20">
+      <div className="w-full border-b-2 border-[#151515] mb-16"></div>
 
-      <div className="flex flex-col gap-20">
+      <div className="flex flex-col gap-24">
         {projects.map((item, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="w-full flex flex-col-reverse lg:flex-row gap-10 items-center"
+            className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
           >
-            {/* LEFT */}
-            <div className="lg:w-2/5 w-full flex flex-col gap-6">
+            {/* TEXT */}
+            <div className="flex flex-col gap-6 order-2 lg:order-1">
               <motion.h2
-                initial={{ x: -80, opacity: 0 }}
+                initial={{ x: -60, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.7 }}
+                transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="text-3xl font-semibold"
+                className="text-[clamp(28px,3vw,42px)] font-semibold"
               >
                 {item.title}
               </motion.h2>
 
               <motion.p
-                initial={{ x: -80, opacity: 0 }}
+                initial={{ x: -60, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.15 }}
+                transition={{ duration: 0.6, delay: 0.15 }}
                 viewport={{ once: true }}
-                className="text-lg"
+                className="text-base sm:text-lg max-w-xl leading-relaxed"
               >
                 {item.description}
               </motion.p>
 
-              {/* BUTTONS */}
               <motion.div
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.25 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
                 viewport={{ once: true }}
-                className="flex gap-4 mt-4"
+                className="flex flex-wrap gap-4 mt-2"
               >
                 <a
                   href={item.live}
@@ -89,22 +85,22 @@ const Project = () => {
               </motion.div>
             </div>
 
-            {/* RIGHT IMAGE */}
+            {/* IMAGE */}
             <motion.div
-              initial={{ y: -80, opacity: 0 }}
+              initial={{ y: -60, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               onMouseEnter={enterExplore}
               onMouseLeave={leaveExplore}
-              className="lg:w-3/5 w-full relative"
+              className="relative w-full order-1 lg:order-2"
             >
               <Image
                 src={item.image}
                 alt={item.title}
                 width={1200}
                 height={800}
-                className="w-full h-auto rounded-xl"
+                className="w-full h-auto rounded-xl object-cover"
               />
             </motion.div>
           </motion.div>
